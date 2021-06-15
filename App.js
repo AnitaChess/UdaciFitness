@@ -10,7 +10,7 @@ const store = createStore(reducer);
 export default function App() {
     return (
         <Provider store={store}>
-            <View>
+            <View style={{flex: 1}}>
                 <AddEntry />
             </View>
         </Provider>
