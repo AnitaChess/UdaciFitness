@@ -9,7 +9,7 @@ import TextButton from "./TextButton";
 import {submitEntry, removeEntry} from "../utils/api";
 import {connect} from "react-redux";
 import {addEntry} from "../actions";
-import {getDailyRemainderValue} from "../utils/helpers";
+import {getDailyReminderValue} from "../utils/helpers";
 import { purple, white } from "../utils/colors";
 
 function SubmitBtn ({onPress}) {
@@ -86,7 +86,7 @@ class AddEntry extends Component {
         const key = timeToString();
 
         this.props.dispatch(addEntry({
-            [key]: getDailyRemainderValue()
+            [key]: getDailyReminderValue()
         }));
 
         // Route to home
