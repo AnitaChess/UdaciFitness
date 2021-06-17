@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {receiveEntries, addEntry} from "../actions";
 import {timeToString, getDailyReminderValue} from "../utils/helpers";
 import {fetchCalendarResults} from "../utils/api";
-import UdaciFitnessCalendar from 'udacifitness-calendar';
+import {Agenda as UdaciFitnessCalendar} from 'react-native-calendars'
 import {white} from "../utils/colors";
 import DateHeader from "./DateHeader";
 
