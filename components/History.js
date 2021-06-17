@@ -4,8 +4,7 @@ import {connect} from "react-redux";
 import {receiveEntries, addEntry} from "../actions";
 import {timeToString, getDailyReminderValue} from "../utils/helpers";
 import {fetchCalendarResults} from "../utils/api";
-// import UdaciFitnessCalendar from 'udacifitness-calendar';
-import {Agenda} from 'react-native-calendars';
+import UdaciFitnessCalendar from 'udacifitness-calendar';
 import {white} from "../utils/colors";
 import DateHeader from "./DateHeader";
 
@@ -59,10 +58,8 @@ class History extends Component {
     render() {
         const {entries} = this.props;
 
-        console.log(entries)
-
         return (
-            <Agenda
+            <UdaciFitnessCalendar
                 items={entries}
                 renderItem={this.renderItem}
                 renderEmptyDay={this.renderEmptyDay}
