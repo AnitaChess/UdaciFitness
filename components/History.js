@@ -8,6 +8,7 @@ import {Agenda as UdaciFitnessCalendar} from 'react-native-calendars'
 import {white} from "../utils/colors";
 import MetricCard from "./MetricCard";
 import AppLoading from 'expo-app-loading'
+import DateHeader from "./DateHeader";
 
 class History extends Component {
     state = {
@@ -41,6 +42,8 @@ class History extends Component {
         const index = values.indexOf(item);
         const key = keys[index];
 
+        const formattedDate = key && new Date(key).toLocaleDateString();
+
         return (
             <View style={styles.item}>
                 {today ? (
@@ -51,7 +54,7 @@ class History extends Component {
                     </View>
                 ) : (
                     <TouchableOpacity onPress={() => this.props.navigation.navigate("EntryDetail", {entryId: key})}>
-                        <MetricCard metrics={metrics} />
+                        <MetricCard metrics={metrics} date={formattedDate} />
                     </TouchableOpacity>
                 )}
             </View>
