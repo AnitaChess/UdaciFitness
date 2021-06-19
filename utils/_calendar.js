@@ -24,7 +24,7 @@ function setDummyData () {
                 sleep: getRandomNumber(sleep.max),
                 eat: getRandomNumber(eat.max),
             }]
-            : new Array()
+            : []
     }
 
     AsyncStorage.setItem(CALENDAR_STORAGE_KEY, JSON.stringify(dummyData))

@@ -6,7 +6,7 @@ class EntryDetail extends Component {
         return (
             <View>
                 <Text>
-                    EntryDetail - {JSON.stringify(this.props.navigation)}
+                    EntryDetail - {this.props.route.params.entryId}
                 </Text>
             </View>
         )

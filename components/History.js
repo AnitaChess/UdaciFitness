@@ -6,7 +6,6 @@ import {timeToString, getDailyReminderValue} from "../utils/helpers";
 import {fetchCalendarResults} from "../utils/api";
 import {Agenda as UdaciFitnessCalendar} from 'react-native-calendars'
 import {white} from "../utils/colors";
-import DateHeader from "./DateHeader";
 import MetricCard from "./MetricCard";
 import AppLoading from 'expo-app-loading'
 
@@ -20,7 +19,7 @@ class History extends Component {
 
         fetchCalendarResults()
             .then(entries => dispatch(receiveEntries(entries)))
-            .then(({ entries }) => {
+            .then(({entries}) => {
                 if (!entries[timeToString()]) {
                     dispatch(
                         addEntry({
@@ -34,32 +33,34 @@ class History extends Component {
             }));
     }
 
-    renderItem = ({today, ...metrics}, formattedDate, key) => {
+    renderItem = (item) => {
+        const {today, ...metrics} = item;
+        const {entries} = this.props;
+        const keys = Object.keys(entries);
+        const values = Object.values(entries).map(el => el[0]);
+        const index = values.indexOf(item);
+        const key = keys[index];
+
         return (
             <View style={styles.item}>
                 {today ? (
                     <View>
-                        <DateHeader date={formattedDate} />
                         <Text style={styles.noDataText}>
                             {today}
                         </Text>
                     </View>
                 ) : (
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate(
-                        'EntryDetail',
-                        {entryId: key}
-                    )}>
-                        <MetricCard metrics={metrics} date={formattedDate} />
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate("EntryDetail", {entryId: key})}>
+                        <MetricCard metrics={metrics} />
                     </TouchableOpacity>
                 )}
             </View>
         )
     };
 
-    renderEmptyDay(formattedDate) {
+    renderEmptyDay() {
         return (
             <View style={styles.item}>
-                <DateHeader date={formattedDate} />
                 <Text style={styles.noDataText}>
                     You didn't log any data on this day.
                 </Text>

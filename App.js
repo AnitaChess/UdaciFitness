@@ -1,19 +1,19 @@
-import React, {Component} from 'react';
 import 'react-native-gesture-handler';
-import {Platform, StatusBar, View} from 'react-native';
-import {createStore} from "redux";
-import reducer from './reducers';
-import {Provider} from "react-redux";
-import History from "./components/History";
-import AddEntry from "./components/AddEntry";
-import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {purple, white} from "./utils/colors";
-import {FontAwesome, Ionicons} from "@expo/vector-icons";
-import Constants from "expo-constants";
-import {createStackNavigator} from '@react-navigation/stack';
-import EntryDetail from "./components/EntryDetail";
+import React, {Component}                   from 'react';
+import {Platform, StatusBar, View}          from 'react-native';
+import {createStore}                        from "redux";
+import reducer                              from './reducers';
+import {Provider}                           from "react-redux";
+import History                              from "./components/History";
+import AddEntry                             from "./components/AddEntry";
+import {NavigationContainer}                from '@react-navigation/native';
+import {createBottomTabNavigator}           from '@react-navigation/bottom-tabs';
+import {createMaterialTopTabNavigator}      from '@react-navigation/material-top-tabs';
+import {purple, white}                      from "./utils/colors";
+import {FontAwesome, Ionicons}              from "@expo/vector-icons";
+import Constants                            from "expo-constants";
+import {createStackNavigator}               from '@react-navigation/stack';
+import EntryDetail                          from "./components/EntryDetail";
 
 function UdaciStatusBar({backgroundColor, ...props}) {
     return (
@@ -36,11 +36,11 @@ const TabNav = () => (
                 let icon;
                 if (route.name === "Add Entry") {
                     icon = (
-                        <FontAwesome name="plus-square" size={size} color={color}/>
+                        <FontAwesome name="plus-square" size={size} color={color} />
                     );
                 } else if (route.name === "History") {
                     icon = (
-                        <Ionicons name="ios-bookmarks" size={size} color={color}/>
+                        <Ionicons name="ios-bookmarks" size={size} color={color} />
                     );
                 }
                 return icon;
@@ -68,7 +68,6 @@ const TabNav = () => (
     </Tabs.Navigator>
 );
 
-
 const Stack = createStackNavigator();
 const MainNav = () => (
     <Stack.Navigator headerMode="screen">
@@ -81,7 +80,8 @@ const MainNav = () => (
             name="EntryDetail"
             component={EntryDetail}
             options={{
-                headerTintColor: white, headerStyle: {
+                headerTintColor: white,
+                headerStyle: {
                     backgroundColor: purple,
                 }
             }}
@@ -89,8 +89,7 @@ const MainNav = () => (
     </Stack.Navigator>
 );
 
-
-export default class App extends Component {
+class App extends Component {
     render() {
         return (
             <Provider store={createStore(reducer)}>
@@ -101,7 +100,8 @@ export default class App extends Component {
                     </NavigationContainer>
                 </View>
             </Provider>
-
         );
     }
 }
+
+export default App;

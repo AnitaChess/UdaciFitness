@@ -1,13 +1,11 @@
 import React from 'react';
 import {View, StyleSheet, Text} from "react-native";
-import DateHeader from "./DateHeader";
 import {getMetricMetaInfo} from "../utils/helpers";
 import {gray} from "../utils/colors";
 
-function MetricCard({date, metrics}) {
+function MetricCard({metrics}) {
     return (
         <View>
-            {date && <DateHeader date={date} />}
             {Object.keys(metrics).map(metric => {
                 const {getIcon, displayName, unit, backgroundColor} = getMetricMetaInfo(metric);
 
