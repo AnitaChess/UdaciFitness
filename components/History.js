@@ -1,14 +1,19 @@
-import React, {Component} from 'react';
-import {View, Text, StyleSheet, Platform, TouchableOpacity} from 'react-native';
-import {connect} from "react-redux";
-import {receiveEntries, addEntry} from "../actions";
-import {timeToString, getDailyReminderValue} from "../utils/helpers";
-import {fetchCalendarResults} from "../utils/api";
+import React, {Component}               from 'react';
+import {
+    View, Text, StyleSheet,
+    Platform, TouchableOpacity
+}                                       from 'react-native';
+import {connect}                        from "react-redux";
+import {receiveEntries, addEntry}       from "../actions";
+import {
+    timeToString,
+    getDailyReminderValue
+}                                       from "../utils/helpers";
+import {fetchCalendarResults}           from "../utils/api";
 import {Agenda as UdaciFitnessCalendar} from 'react-native-calendars'
-import {white} from "../utils/colors";
-import MetricCard from "./MetricCard";
-import AppLoading from 'expo-app-loading'
-import DateHeader from "./DateHeader";
+import {white}                          from "../utils/colors";
+import MetricCard                       from "./MetricCard";
+import AppLoading                       from 'expo-app-loading';
 
 class History extends Component {
     state = {

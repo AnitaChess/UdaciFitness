@@ -1,8 +1,8 @@
-import React from 'react';
-import {View, StyleSheet, Text} from "react-native";
-import {getMetricMetaInfo} from "../utils/helpers";
-import DateHeader from "./DateHeader";
-import {gray} from "../utils/colors";
+import React                        from 'react';
+import {View, StyleSheet, Text}     from "react-native";
+import {getMetricMetaInfo}          from "../utils/helpers";
+import DateHeader                   from "./DateHeader";
+import {gray}                       from "../utils/colors";
 
 function MetricCard({date, metrics}) {
     return (

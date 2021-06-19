@@ -1,6 +1,6 @@
-import React from 'react';
-import {Text, TouchableOpacity, StyleSheet} from 'react-native';
-import {purple} from "../utils/colors";
+import React                                    from 'react';
+import {Text, TouchableOpacity, StyleSheet}     from 'react-native';
+import {purple}                                 from "../utils/colors";
 
 function TextButton({children, onPress, style = {}}) {
     return (
