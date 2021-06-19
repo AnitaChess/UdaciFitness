@@ -66,7 +66,7 @@ export function getMetricMetaInfo(metric) {
             unit: 'miles',
             step: 1,
             type: 'steppers',
-            getIcon() {
+            getIcon: () => {
                 return (
                     <View style={[styles.iconContainer, {backgroundColor: red}]}>
                         <MaterialIcons
@@ -84,7 +84,7 @@ export function getMetricMetaInfo(metric) {
             unit: 'miles',
             step: 1,
             type: 'steppers',
-            getIcon() {
+            getIcon: () => {
                 return (
                     <View style={[styles.iconContainer, {backgroundColor: orange}]}>
                         <MaterialCommunityIcons
@@ -102,7 +102,7 @@ export function getMetricMetaInfo(metric) {
             unit: 'meters',
             step: 100,
             type: 'steppers',
-            getIcon() {
+            getIcon: () => {
                 return (
                     <View style={[styles.iconContainer, {backgroundColor: blue}]}>
                         <MaterialCommunityIcons
@@ -120,7 +120,7 @@ export function getMetricMetaInfo(metric) {
             unit: 'hours',
             step: 1,
             type: 'slider',
-            getIcon() {
+            getIcon: () => {
                 return (
                     <View style={[styles.iconContainer, {backgroundColor: lightPurp}]}>
                         <FontAwesome
@@ -138,7 +138,7 @@ export function getMetricMetaInfo(metric) {
             unit: 'rating',
             step: 1,
             type: 'slider',
-            getIcon() {
+            getIcon: () => {
                 return (
                     <View style={[styles.iconContainer, {backgroundColor: pink}]}>
                         <MaterialCommunityIcons
