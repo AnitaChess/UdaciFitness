@@ -3,7 +3,13 @@ import {
     View, TouchableOpacity, Text,
     Platform, StyleSheet
 }                                           from "react-native";
-import {getMetricMetaInfo, timeToString}    from "../utils/helpers";
+import {
+    getMetricMetaInfo,
+    timeToString,
+    getDailyReminderValue,
+    clearLocalNotification,
+    setLocalNotification
+}                                           from "../utils/helpers";
 import UdaciSlider                          from "./UdaciSlider";
 import UdaciSteppers                        from "./UdaciSteppers";
 import DateHeader                           from "./DateHeader";
@@ -12,7 +18,6 @@ import TextButton                           from "./TextButton";
 import {submitEntry, removeEntry}           from "../utils/api";
 import {connect}                            from "react-redux";
 import {addEntry}                           from "../actions";
-import {getDailyReminderValue}              from "../utils/helpers";
 import {purple, white}                      from "../utils/colors";
 import {CommonActions}                      from '@react-navigation/native';
 
@@ -83,7 +88,8 @@ class AddEntry extends Component {
 
         submitEntry({key, entry});
 
-        // Clear local notification
+        clearLocalNotification()
+            .then(setLocalNotification)
     };
 
     reset = () => {
