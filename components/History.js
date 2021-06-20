@@ -67,7 +67,7 @@ class History extends Component {
         )
     };
 
-    renderEmptyDay() {
+    renderEmptyDate() {
         return (
             <View style={styles.item}>
                 <Text style={styles.noDataText}>
@@ -89,7 +89,7 @@ class History extends Component {
             <UdaciFitnessCalendar
                 items={entries}
                 renderItem={this.renderItem}
-                renderEmptyDay={this.renderEmptyDay}
+                renderEmptyDate={this.renderEmptyDate}
             />
         )
     }

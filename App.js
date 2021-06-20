@@ -79,10 +79,19 @@ const MainNav = () => (
         <Stack.Screen
             name="EntryDetail"
             component={EntryDetail}
-            options={{
-                headerTintColor: white,
-                headerStyle: {
-                    backgroundColor: purple,
+            options={({route}) => {
+                const {entryId} = route.params;
+
+                const year = entryId.slice(0, 4);
+                const month = entryId.slice(5, 7);
+                const day = entryId.slice(8);
+
+                return {
+                    headerTintColor: white,
+                    headerStyle: {
+                        backgroundColor: purple,
+                    },
+                    title: `${month}/${day}/${year}`
                 }
             }}
         />
