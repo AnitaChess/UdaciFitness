@@ -7,7 +7,8 @@ import {connect}                        from "react-redux";
 import {receiveEntries, addEntry}       from "../actions";
 import {
     timeToString,
-    getDailyReminderValue
+    getDailyReminderValue,
+    formatDate
 }                                       from "../utils/helpers";
 import {fetchCalendarResults}           from "../utils/api";
 import {Agenda as UdaciFitnessCalendar} from 'react-native-calendars'
@@ -47,7 +48,7 @@ class History extends Component {
         const index = values.indexOf(item);
         const key = keys[index];
 
-        const formattedDate = key && new Date(key).toLocaleDateString();
+        const formattedDate = key && formatDate(new Date(key));
 
         return (
             <View style={styles.item}>

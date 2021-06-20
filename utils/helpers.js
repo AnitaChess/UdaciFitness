@@ -51,6 +51,14 @@ export function timeToString (time = Date.now()) {
     return todayUTC.toISOString().split('T')[0]
 }
 
+export function formatDate (time = Date.now()) {
+    const date = new Date(time)
+    const todayUTC = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()))
+
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    return months[todayUTC.getMonth()] + ' ' + todayUTC.getDate() + ', ' + todayUTC.getFullYear();
+}
+
 const styles = StyleSheet.create({
    iconContainer: {
        padding: 5,

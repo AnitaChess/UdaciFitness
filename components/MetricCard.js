@@ -13,7 +13,7 @@ function MetricCard({date, metrics}) {
 
                 return (
                     <View style={[styles.metric, {backgroundColor}]} key={metric}>
-                        {getIcon}
+                        {getIcon()}
                         <View>
                             <Text style={{fontSize: 20}}>
                                 {displayName}
